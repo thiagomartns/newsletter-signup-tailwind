@@ -9,7 +9,7 @@ function App() {
       <div className='bg-white w-[728px] h-[530px] rounded-3xl flex items-center justify-center gap-3 px-5'>
         <div className='flex flex-col w-1/2 p-4 justify-center gap-3 h-full'>
           <div className="text flex flex-col gap-5">
-            <h1 className='text-darkNavy font-bold text-5xl'>Stay updated!</h1>
+            <h1 className='text-darkNavy font-bold text-4xl'>Stay updated!</h1>
             <p className='font-normal text-base text-darkNavy'>Join 60,000+ product managers receiving monthly updates on:</p>
             <div className="bullets text-darkNavy font-normal text-base mb-5 flex flex-col gap-2">
               <div className="bullet flex items-center gap-2">
@@ -27,7 +27,7 @@ function App() {
             </div>
           </div>
           <form action="" className='flex flex-col items-start gap-5'>
-            <div className="input flex flex-col gap-2 w-full">
+            <div className="input flex flex-col gap-2 w-full mb-2">
               <label htmlFor="" className='font-bold text-darkNavy text-xs'>Email Address</label>
               <input 
                 className='rounded-lg border border-greyCustom border-solid outline-0 w-full py-2'
