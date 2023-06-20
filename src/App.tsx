@@ -1,8 +1,33 @@
 import MainImgDesktop from './assets/img/illustration-sign-up-desktop.svg';
 import CheckImg from './assets/img/icon-success.svg'
 import './App.css'
+import { useState } from 'react';
 
 function App() {
+
+  const [email, setEmail] = useState<string>('');
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
+  
+
+  const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  }
+
+  const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(email)) {
+      setIsEmailValid(false);
+    } else {
+      setIsEmailValid(true);
+    }
+
+    console.log(isEmailValid);
+    
+    
+  }
 
   return (
     <div className='w-screen h-screen flex items-center justify-center bg-mainBackground'>
@@ -26,16 +51,23 @@ function App() {
               </div>
             </div>
           </div>
-          <form action="" className='flex flex-col items-start gap-5'>
+          <form onSubmit={handleSubmit} className='flex flex-col items-start gap-5'>
             <div className="input flex flex-col gap-2 w-full mb-2">
               <label htmlFor="" className='font-bold text-darkNavy text-xs'>Email Address</label>
               <input 
-                className='rounded-lg border border-greyCustom border-solid outline-0 w-full py-2'
+                className='rounded-lg border border-greyCustom border-solid outline-0 w-full px-3 py-2 hover:border-darkNavy'
                 type="text" 
                 placeholder='email@company.com'
+                onChange={handleChangeEmail}
+                value={email}
               />
             </div>
-            <button className='bg-darkNavy text-white p-3 rounded-lg hover:bg-tomato w-full'>Subscribe to monthly newsletter</button>
+            <button 
+              onClick={handleSubmit} 
+              className='bg-darkNavy text-white p-3 rounded-lg hover:bg-tomato w-full hover: shadow-lg'
+            >
+              Subscribe to monthly newsletter
+            </button>
           </form>
         </div>
         <div className='w-1/2'>
